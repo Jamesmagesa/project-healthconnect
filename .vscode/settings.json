@@ -1,0 +1,8 @@
+{
+    "files.associations": {
+        "**/templates/**/*.html": "html",
+        "**/registration/**/*.html": "html"
+    },
+    
+    
+}
