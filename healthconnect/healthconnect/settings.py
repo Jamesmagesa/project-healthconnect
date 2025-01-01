@@ -29,6 +29,10 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 
+
+# Database
+# auth_user_model = 'accounts.User'
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -73,7 +77,9 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'healthconnect.wsgi.application'
 
+LOGIN_REDIRECT_URL = 'home'
 
+LOGOUT_REDIRECT_URL = 'login'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
@@ -103,6 +109,10 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+AUTHENTICATION_BACKENDS = (
+    # 'django.contrib.auth.backends.ModelBackend',  # Default backend
+    'accounts.backends.EmailBackend',  # custom backend for email login
+)
 
 # Internationalization
 # https://docs.djangoproject.com/en/5.1/topics/i18n/
