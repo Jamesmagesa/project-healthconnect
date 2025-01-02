@@ -1,24 +1,25 @@
 from django import forms
 from django.contrib.auth import authenticate
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm, AuthenticationForm
-from django.contrib.auth.models import User
+from .models import CustomUser
 
 class SignUpForm(UserCreationForm):
     
     email = forms.EmailField(label = "Email")
     first_name = forms.CharField(max_length=100, label = "First Name")
     last_name = forms.CharField(max_length=100, label = "Last Name")
+    role = forms.ChoiceField(choices=CustomUser.ROLE_CHOICES, label = "Role")
 
     class Meta(UserCreationForm.Meta):
-        model = User
-        fields = ('first_name', 'last_name', 'email', 'username', 'password1', 'password2')
+        model = CustomUser
+        fields = ('first_name', 'last_name', 'email','role' , 'username', 'password1', 'password2')
         
 
 class UserUpdateForm(UserChangeForm):
     # Inherits from the built-in UserChangeForm's Meta 
     # for modify user details in the admin panel
     class Meta(UserChangeForm.Meta):
-        model = User
+        model = CustomUser
         field = UserCreationForm.Meta.fields
     
  

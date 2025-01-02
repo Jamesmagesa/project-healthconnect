@@ -1,0 +1,17 @@
+{% extends "base.html" %} {% load django_bootstrap5 %} {% block title %}home
+page{% endblock %} {% bootstrap_css %} {% block content %}
+<div class="container-fluid shadow p-3 mb-5 bg-white rounded">
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <div class="check text-center">
+        {% if user.is_authenticated %}
+        <p class="form-signin w-100 m-auto">Welcome, {{ user.username }}</p>
+        {% else %}
+        <p class="form-signin w-150 m-2">Please login to access the site.</p>
+        <a href="{% url 'login' %}"> login</a>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

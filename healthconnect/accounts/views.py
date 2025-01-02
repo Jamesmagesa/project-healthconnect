@@ -27,5 +27,8 @@ class SignUpView(CreateView):
     success_url = reverse_lazy('login')
 
 
-def homeview(request):
-    return HttpResponse('Home page')
+
+class homeview(TemplateView):
+    
+     template_name = 'home.html'
+     

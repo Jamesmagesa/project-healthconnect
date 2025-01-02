@@ -1,9 +1,15 @@
 # healthconnect setup
 
-# super user
+# create super_user
 username : admin-M3
 password : jamexground
+email: jamesamosmagesa@gmail.com
 
-# add backends py for email login
+# account management setup
+add backends py for email login
+add forms and models for account management
+add role-based registration
+
+
 
 
